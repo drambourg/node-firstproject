@@ -17,6 +17,25 @@ app.get('/api/employees', (req, res) => {
     });
 });
 
+app.get('/api/movies', (req, res) => {
+    connection.query('SELECT * from movie', (err, results) => {
+        if (err) {
+            res.status(500).send('Error retrieving movies');
+        } else {
+            res.json(results);
+        }
+    });
+});
+
+app.get('/api/movies/names', (req, res) => {
+    connection.query('SELECT title from movie', (err, results) => {
+        if (err) {
+            res.status(500).send('Error retrieving movies names');
+        } else {
+            res.json(results);
+        }
+    });
+});
 
 
 app.listen(port, (err) => {
