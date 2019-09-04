@@ -1,0 +1,8 @@
+const  mysql = require('mysql');
+const  connection = mysql.createConnection({
+    host :  'host', // address of the server
+    user :  'username', // username
+    password :  'password',
+    database :  'db',
+});
+module.exports = connection;
